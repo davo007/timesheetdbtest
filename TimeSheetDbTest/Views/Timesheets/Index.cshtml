@@ -1,0 +1,12 @@
+﻿@model TimeSheetDbTest.ViewModels.TimesheetViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.JobNumberId)
+    @Html.DropDownListFor(m => m.JobNumberId, new SelectList(Model.JobNumber, "JobNumber", "JobNumber"), "Select Job Number Type", new { @class = "form-control" })
+</div>
