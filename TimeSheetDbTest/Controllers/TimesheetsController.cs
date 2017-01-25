@@ -53,5 +53,41 @@ namespace TimeSheetDbTest.Controllers
                         
             return View(viewModel);
         }
+
+        public ActionResult GetPackages(int JobNumber)
+        {
+            var Packages = _context.GetPackages(JobNumber);
+
+            IEnumerable<PackagesModels> PackageList = Packages.Select(x => new PackagesModels
+            {
+                Id = x.Package__SJC_,
+                Name = x.Package__SJC_
+            }).ToList();
+
+            var viewModel = new PackagesViewModel
+            {
+                Packages = PackageList
+            };
+
+            return View(viewModel);
+        }
+
+        public ActionResult GetActivities(int JobNumber, string Package)
+        {
+            var Activities = _context.GetActivities(JobNumber, Package);
+
+            IEnumerable<ActivitiesModels> ActivitiesList = Activities.Select(x => new ActivitiesModels
+            {
+                Id = x.Activity__CGR_,
+                Name = x.Activity__CGR_
+            }).ToList();
+
+            var viewModel = new ActivitiesViewModel
+            {
+                Activities = ActivitiesList
+            };
+
+            return View(viewModel);
+        }
     }
 }

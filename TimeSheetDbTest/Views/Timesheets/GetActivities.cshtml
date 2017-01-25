@@ -1,0 +1,12 @@
+﻿@model TimeSheetDbTest.ViewModels.ActivitiesViewModel
+@{
+    ViewBag.Title = "GetActivities";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetActivities</h2>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Id)
+    @Html.DropDownListFor(m => m.Id, new SelectList(Model.Activities, "Name", "Name"), "Select Package", new { @class = "form-control" })
+</div>

@@ -1,0 +1,12 @@
+﻿@model TimeSheetDbTest.ViewModels.PackagesViewModel
+@{
+    ViewBag.Title = "GetPackages";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetPackages</h2>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Id)
+    @Html.DropDownListFor(m => m.Id, new SelectList(Model.Packages, "Name", "Name"), "Select Package", new { @class = "form-control" })
+</div>

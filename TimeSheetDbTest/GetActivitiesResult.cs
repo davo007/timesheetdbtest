@@ -11,8 +11,8 @@ namespace TimeSheetDbTest
 {
     using System;
     
-    public partial class GetJobNumbersResult
+    public partial class GetActivitiesResult
     {
-        public Nullable<int> Job_No__JOB_ { get; set; }
+        public string Activity__CGR_ { get; set; }
     }
 }

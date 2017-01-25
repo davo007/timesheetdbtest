@@ -32,5 +32,27 @@ namespace TimeSheetDbTest
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetJobNumbersResult>("GetJobNumbers");
         }
+    
+        public virtual ObjectResult<GetActivitiesResult> GetActivities(Nullable<int> jobNumber, string package)
+        {
+            var jobNumberParameter = jobNumber.HasValue ?
+                new ObjectParameter("JobNumber", jobNumber) :
+                new ObjectParameter("JobNumber", typeof(int));
+    
+            var packageParameter = package != null ?
+                new ObjectParameter("Package", package) :
+                new ObjectParameter("Package", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetActivitiesResult>("GetActivities", jobNumberParameter, packageParameter);
+        }
+    
+        public virtual ObjectResult<GetPackagesResult> GetPackages(Nullable<int> jobNumber)
+        {
+            var jobNumberParameter = jobNumber.HasValue ?
+                new ObjectParameter("JobNumber", jobNumber) :
+                new ObjectParameter("JobNumber", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetPackagesResult>("GetPackages", jobNumberParameter);
+        }
     }
 }

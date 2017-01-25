@@ -211,7 +211,13 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TimesheetsController.cs" />
+    <Compile Include="GetActivitiesResult.cs">
+      <DependentUpon>TimesheetData.tt</DependentUpon>
+    </Compile>
     <Compile Include="GetJobNumbersResult.cs">
+      <DependentUpon>TimesheetData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetPackagesResult.cs">
       <DependentUpon>TimesheetData.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -221,11 +227,21 @@
     <Compile Include="Migrations\201701240712168_JobNumbersAdded.Designer.cs">
       <DependentUpon>201701240712168_JobNumbersAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701251051150_addedActivitiesModel.cs" />
+    <Compile Include="Migrations\201701251051150_addedActivitiesModel.Designer.cs">
+      <DependentUpon>201701251051150_addedActivitiesModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701251053577_addPackageModel.cs" />
+    <Compile Include="Migrations\201701251053577_addPackageModel.Designer.cs">
+      <DependentUpon>201701251053577_addPackageModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ActivitiesModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JobNumberModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PackagesModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="TimesheetData.Context.cs">
@@ -243,6 +259,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TimesheetData.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ActivitiesViewModel.cs" />
+    <Compile Include="ViewModels\PackagesViewModel.cs" />
     <Compile Include="ViewModels\TimesheetViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -322,6 +340,8 @@
       <DependentUpon>TimesheetData.edmx</DependentUpon>
     </Content>
     <Content Include="Views\Timesheets\Index2.cshtml" />
+    <Content Include="Views\Timesheets\GetPackages.cshtml" />
+    <Content Include="Views\Timesheets\GetActivities.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -340,6 +360,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201701240712168_JobNumbersAdded.resx">
       <DependentUpon>201701240712168_JobNumbersAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701251051150_addedActivitiesModel.resx">
+      <DependentUpon>201701251051150_addedActivitiesModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701251053577_addPackageModel.resx">
+      <DependentUpon>201701251053577_addPackageModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
